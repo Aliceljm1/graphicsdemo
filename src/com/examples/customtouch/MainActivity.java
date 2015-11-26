@@ -5,6 +5,8 @@
  */
 package com.examples.customtouch;
 
+import com.ljm.testmultitouch.MultiTouchDemoActivity;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +24,7 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
             "Move Logger Example", "Touch Listener Example",
             "Touch Delegate Example", "Touch Forward Example",
             "Pan Example", "Pan Gesture Example",
-	        "Multi-Touch Example 多点触控", "Disable Touch Intercept"};
+	        "Multi-Touch Example 多点触控", "Disable Touch Intercept","MultiTouchDemoActivity","简单缩放Scale Example","TestMultiTouchEventActivity"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,16 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
                 break;
             case 7: //Disable Touch Intercept
                 startActivity(new Intent(this, TouchInterceptActivity.class));
+                break;
+            case 8: //Disable Touch Intercept
+                startActivity(new Intent(this, MultiTouchDemoActivity.class));
+                break;
+            case 9: //Disable Touch Intercept
+                startActivity(new Intent(this, com.ljm.gesture.easysample.MainActivity.class));
+                break;
+            case 10: //Disable Touch Intercept
+                startActivity(new Intent(this, com.ljm.testmultitouch.TestMultiTouchEventActivity.class));
+                break;  
             default:
                 break;
         }

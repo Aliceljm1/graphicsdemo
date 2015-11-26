@@ -17,6 +17,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mImageView = (TouchImageView) findViewById(R.id.image_view);
-        mImageView.setImageResource(R.drawable.ic_launcher);
+        mImageView.setImageResource(R.drawable.android);
     }
 }

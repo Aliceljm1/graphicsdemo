@@ -23,11 +23,16 @@
 
 package com.ljm.testmultitouch;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import com.ljm.utils.Geometry;
 import com.ljm.utils.X11Color;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Shader;
@@ -46,7 +51,7 @@ import com.ljm.graphics.R;;
 /**
  * MultiGestureDetector Demo
  * 粉色的圆球，可以缩放，移动
- * 双击移动到中心点，初始化的时候也是移动到中心点
+ * 双击移动到中心点，初始化的时候也是移动到中心点, 最大放大倍数5被
  * @author Christopher Boyd
  */
 public class MultiTouchDemoActivity extends Activity implements OnTouchListener {
@@ -60,27 +65,31 @@ public class MultiTouchDemoActivity extends Activity implements OnTouchListener 
     private float mFocusY 			= 0.f;  //显示点
     private int   mAlpha 			= 255;
     private int   mLastAlpha 		= mAlpha;
-    private final int OvalHeight 	= 300;
-    private final int OvalWidth 	= OvalHeight;
+    private int OvalHeight 	= 300;
+    private  int OvalWidth 	= OvalHeight;
     
     private PaintDrawable mDrawable;
     
     private MultiGestureDetector mMultiDetector;
-
+    ImageView mView;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		ImageView view = (ImageView) findViewById(R.id.imageView);
-		view.setOnTouchListener(this);
+		mView= (ImageView) findViewById(R.id.imageView);
+		mView.setOnTouchListener(this);
 		
 		// Set the view's initial scale Matrix
 		gotoCenter(mMatrix);
 		mMatrix.postScale(mScaleX, mScaleY);
-		view.setImageMatrix(mMatrix);
+		mView.setImageMatrix(mMatrix);
 
 		// Draw an oval with a gradient.
+		
+		/**
+		 * 粉红色球
+		 * */
 		ShapeDrawable.ShaderFactory sf = new ShapeDrawable.ShaderFactory() {
 		    @Override
 		    public Shader resize(int width, int height) {
@@ -90,13 +99,30 @@ public class MultiTouchDemoActivity extends Activity implements OnTouchListener 
 		        return lg;
 		    }
 		};
+		
+		
+		
 		mDrawable = new PaintDrawable();
 		mDrawable.setShape(new OvalShape());
 		mDrawable.setShaderFactory(sf);
 	    mDrawable.setIntrinsicHeight(OvalHeight);
 	    mDrawable.setIntrinsicWidth(OvalWidth);
+	    //view.setImageDrawable(mDrawable);
 	    
-	    view.setImageDrawable(mDrawable);
+        Bitmap image;
+        try {
+            InputStream in = getAssets().open("android_big.jpg");
+            image = BitmapFactory.decodeStream(in);
+            OvalHeight=image.getHeight();
+            OvalWidth=image.getWidth();
+            // 需要中部居中，同时宽高适配
+            in.close();
+        } catch (IOException e) {
+            image = null;
+        }
+        mView.setImageBitmap(image);
+        
+	   
 	    
 		mMultiDetector = new MultiGestureDetector(getApplicationContext(), new MultiListener());
 	}
@@ -111,12 +137,13 @@ public class MultiTouchDemoActivity extends Activity implements OnTouchListener 
         mFocusY = displayCenterY;
 		// Reset deformation:
 		mScaleX = mScaleY;
-		m.postTranslate(mFocusX, mFocusY);
+		mView.scrollTo((int)-mFocusX, (int)-mFocusY);
+//		m.postTranslate(mFocusX, mFocusY);
 	}
 	
 	@SuppressLint("NewApi")
 	public boolean onTouch(View v, MotionEvent event) {
-        mMultiDetector.onTouchEvent(event);
+        mMultiDetector.onTouchEvent(event);// 处理好坐标，准备移动和缩放
 
         float scaledImageCenterX = (OvalWidth*mScaleX)/2;
         float scaledImageCenterY = (OvalHeight*mScaleY)/2;
@@ -148,6 +175,10 @@ public class MultiTouchDemoActivity extends Activity implements OnTouchListener 
 			gotoCenter(mMatrix);
 			return true;
 		}
+		
+		/**
+		 * e1 为起点，e2是终点，distanceX 为负值表示想x轴正方向也就是右边移动，同理distanceY
+		 * */
 		@Override
 		public boolean onMove(MotionEvent e1, MotionEvent e2,
 				float distanceX, float distanceY, int numPointers) {

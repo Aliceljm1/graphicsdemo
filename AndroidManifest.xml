@@ -22,9 +22,11 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         <activity
-            android:name="com.ljm.testmultitouch.MultiTouchDemoActivity"
+            android:name="com.examples.customtouch.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
+
+            <!-- android:name="com.examples.customtouch.MainActivity" -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,27 +34,40 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.ljm.testmultitouch.MultiTouchDemoActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.ljm.gesture.easysample.MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name="com.examples.customtouch.TwoDimensionScrollActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.examples.customtouch.TwoDimensionGestureScrollActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.examples.customtouch.MultitouchActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.examples.customtouch.MoveLoggerActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.examples.customtouch.TouchForwardActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.examples.customtouch.TouchDelegateActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.examples.customtouch.TouchListenerActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="com.examples.customtouch.TouchInterceptActivity" />
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.examples.customtouch.TouchInterceptActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.ljm.testmultitouch.TestMultiTouchEventActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_test_multi_touch_event" >
+        </activity>
     </application>
 
 </manifest>
