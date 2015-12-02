@@ -56,7 +56,7 @@ public class TestMultiTouchEventActivity extends Activity implements
 
 	private void handTouch(MotionEvent event) {
 		int pointerCount = event.getPointerCount();
-		int action = (event.getAction() & MotionEvent.ACTION_MASK);// 统一单点和多点
+		int action = (event.getAction() & MotionEvent.ACTION_MASK);
 		
 		if(pointerCount==2){
 			 Logger.log("两指头间距："+PointUtils.spacing(event)+"action="+action);

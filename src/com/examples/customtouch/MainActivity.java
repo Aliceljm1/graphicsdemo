@@ -21,10 +21,18 @@ import android.widget.ArrayAdapter;
 public class MainActivity extends ListActivity implements OnItemClickListener {
 
 	private static final String[] ITEMS = {
-            "Move Logger Example", "Touch Listener Example",
-            "Touch Delegate Example", "Touch Forward Example",
+            "Move Logger Example", 
+            "Touch Listener Example",
+            "Touch Delegate Example", 
+            "Touch Forward Example",
             "Pan Example", "Pan Gesture Example",
-	        "Multi-Touch Example 多点触控", "Disable Touch Intercept","MultiTouchDemoActivity","简单缩放Scale Example","TestMultiTouchEventActivity"};
+	        "Multi-Touch Example 多点触控",
+	        "Disable Touch Intercept",
+	        "MultiTouchDemoActivity",
+	        "简单缩放Scale Example",
+	        "TestMultiTouchEventActivity",
+	        "TestMatrixMathActivity",
+	        "DrawLineSampleActivity"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +77,14 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
                 break;
             case 10: //Disable Touch Intercept
                 startActivity(new Intent(this, com.ljm.testmultitouch.TestMultiTouchEventActivity.class));
-                break;  
+                break;
+            case 11: //Disable Touch Intercept
+                startActivity(new Intent(this, com.ljm.testmatrix.TestMatrixMathActivity.class));
+                break; 
+            case 12: //Disable Touch Intercept
+                startActivity(new Intent(this, com.ljm.testdrawline.DrawLineSampleActivity.class));
+                break;       
+                
             default:
                 break;
         }

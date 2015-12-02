@@ -1,4 +1,4 @@
-package com.ljm.textmatrix; 
+package com.ljm.testmatrix; 
 
 import com.ljm.graphics.R;
 import android.content.Context;

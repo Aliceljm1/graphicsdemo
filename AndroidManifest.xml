@@ -65,9 +65,22 @@
             android:screenOrientation="landscape" />
         <activity
             android:name="com.ljm.testmultitouch.TestMultiTouchEventActivity"
-            android:screenOrientation="landscape"
-            android:label="@string/title_activity_test_multi_touch_event" >
+            android:label="@string/title_activity_test_multi_touch_event"
+            android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name="com.ljm.testmatrix.TestMatrixMathActivity"
+            android:label="@string/title_activity_test_matrix_math"
+            android:screenOrientation="landscape"
+             >
+        </activity>
+        
+                <activity
+            android:name="com.ljm.testdrawline.DrawLineSampleActivity"
+            android:screenOrientation="landscape"
+             >
+        </activity>
+        
     </application>
 
 </manifest>

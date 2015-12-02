@@ -1,4 +1,4 @@
-package com.ljm.textmatrix; 
+package com.ljm.testmatrix; 
 
 import android.app.Activity;
 import android.os.Bundle;
