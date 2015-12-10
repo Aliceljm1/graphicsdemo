@@ -20,19 +20,15 @@ import android.widget.ArrayAdapter;
  * */
 public class MainActivity extends ListActivity implements OnItemClickListener {
 
-	private static final String[] ITEMS = {
-            "Move Logger Example", 
-            "Touch Listener Example",
-            "Touch Delegate Example", 
-            "Touch Forward Example",
-            "Pan Example", "Pan Gesture Example",
+	private static final String[] ITEMS = {"Pan Gesture Example",
 	        "Multi-Touch Example 多点触控",
 	        "Disable Touch Intercept",
 	        "MultiTouchDemoActivity",
 	        "简单缩放Scale Example",
-	        "TestMultiTouchEventActivity",
+	        "记录移动点",
 	        "TestMatrixMathActivity",
-	        "DrawLineSampleActivity"};
+	        "DrawLineSampleActivity",
+	        "测试canvas功能"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,45 +41,33 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
-            case 0: //Move Logger View
-                startActivity(new Intent(this, MoveLoggerActivity.class));
-                break;
-            case 1: //Touch Listener
-                startActivity(new Intent(this, TouchListenerActivity.class));
-                break;
-            case 2: //Touch Delegate
-                startActivity(new Intent(this, TouchDelegateActivity.class));
-                break;
-            case 3: //Touch Forwarding
-                startActivity(new Intent(this, TouchForwardActivity.class));
-                break;
-            case 4: //2D Scrolling
-                startActivity(new Intent(this, TwoDimensionScrollActivity.class));
-                break;
-            case 5: //2D GestureDetector Scrolling
+            case 0: //2D GestureDetector Scrolling
                 startActivity(new Intent(this, TwoDimensionGestureScrollActivity.class));
                 break;
-            case 6: //Multi-Touch Image View
+            case 1: //Multi-Touch Image View
                 startActivity(new Intent(this, MultitouchActivity.class));
                 break;
-            case 7: //Disable Touch Intercept
+            case 2: //Disable Touch Intercept
                 startActivity(new Intent(this, TouchInterceptActivity.class));
                 break;
-            case 8: //Disable Touch Intercept
+            case 3: //Disable Touch Intercept
                 startActivity(new Intent(this, MultiTouchDemoActivity.class));
                 break;
-            case 9: //Disable Touch Intercept
+            case 4: //Disable Touch Intercept
                 startActivity(new Intent(this, com.ljm.gesture.easysample.MainActivity.class));
                 break;
-            case 10: //Disable Touch Intercept
+            case 5: //Disable Touch Intercept
                 startActivity(new Intent(this, com.ljm.testmultitouch.TestMultiTouchEventActivity.class));
                 break;
-            case 11: //Disable Touch Intercept
+            case 6: //Disable Touch Intercept
                 startActivity(new Intent(this, com.ljm.testmatrix.TestMatrixMathActivity.class));
                 break; 
-            case 12: //Disable Touch Intercept
+            case 7: //Disable Touch Intercept
                 startActivity(new Intent(this, com.ljm.testdrawline.DrawLineSampleActivity.class));
-                break;       
+                break; 
+            case 8: //Disable Touch Intercept
+                startActivity(new Intent(this, com.ljm.graphics.TestCanvasActivity.class));
+                break;   
                 
             default:
                 break;

@@ -48,21 +48,15 @@
         <activity
             android:name="com.examples.customtouch.MultitouchActivity"
             android:screenOrientation="landscape" />
-        <activity
-            android:name="com.examples.customtouch.MoveLoggerActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.examples.customtouch.TouchForwardActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.examples.customtouch.TouchDelegateActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.examples.customtouch.TouchListenerActivity"
-            android:screenOrientation="landscape" />
+
         <activity
             android:name="com.examples.customtouch.TouchInterceptActivity"
             android:screenOrientation="landscape" />
+        
+           <activity
+            android:name="com.ljm.graphics.TestCanvasActivity"
+            android:screenOrientation="landscape" />
+        
         <activity
             android:name="com.ljm.testmultitouch.TestMultiTouchEventActivity"
             android:label="@string/title_activity_test_multi_touch_event"
@@ -75,7 +69,7 @@
              >
         </activity>
         
-                <activity
+        <activity
             android:name="com.ljm.testdrawline.DrawLineSampleActivity"
             android:screenOrientation="landscape"
              >

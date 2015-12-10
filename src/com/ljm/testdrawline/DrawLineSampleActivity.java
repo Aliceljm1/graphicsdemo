@@ -11,7 +11,7 @@ public class DrawLineSampleActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(new DrawLineView(this));
-        setContentView(new SaveStoreTestView(this));
+        setContentView(new DrawLineView(this));
+//        setContentView(new SaveStoreTestView(this));
     }
 }
