@@ -28,7 +28,7 @@ import com.ljm.utils.PointUtils;
 /**
  * 记录点的个数，同时画出点，可能有偏移，注意代码Matrix，
  * */
-public class TestMultiTouchEventActivity extends Activity implements
+public class MarkPointActivity extends Activity implements
 		OnTouchListener {
 
 	ImageView imgView;

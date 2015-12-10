@@ -57,7 +57,7 @@ public class MainActivity extends ListActivity implements OnItemClickListener {
                 startActivity(new Intent(this, com.ljm.gesture.easysample.MainActivity.class));
                 break;
             case 5: //Disable Touch Intercept
-                startActivity(new Intent(this, com.ljm.testmultitouch.TestMultiTouchEventActivity.class));
+                startActivity(new Intent(this, com.ljm.testmultitouch.MarkPointActivity.class));
                 break;
             case 6: //Disable Touch Intercept
                 startActivity(new Intent(this, com.ljm.testmatrix.TestMatrixMathActivity.class));

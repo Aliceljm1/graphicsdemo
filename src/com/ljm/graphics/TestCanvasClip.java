@@ -35,6 +35,7 @@ public class TestCanvasClip  extends View{
 	    canvas.clipRect(new Rect(100, 100, 800, 800));  
 	    canvas.drawColor(Color.GREEN);  
 	    //保存画布大小为Rect(100, 100, 800, 800)  
+	    int saveCount=canvas.getSaveCount();
 	    canvas.save();  
 	      
 	    canvas.clipRect(new Rect(200, 200, 700, 700));  
@@ -55,9 +56,10 @@ public class TestCanvasClip  extends View{
 	    
 	    
 	  //连续出栈三次，将最后一次出栈的Canvas状态作为当前画布，并画成黄色背景  也就是 100,800
-	    canvas.restore();  
-	    canvas.restore();  
-	    canvas.restore();  
+	    //canvas.restore();
+	    //canvas.restore();
+	    //canvas.restore();
+	    canvas.restoreToCount(saveCount); //精确还原 效果同上
  
 	    canvas.drawColor(Color.YELLOW);  
 	}

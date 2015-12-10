@@ -58,7 +58,7 @@
             android:screenOrientation="landscape" />
         
         <activity
-            android:name="com.ljm.testmultitouch.TestMultiTouchEventActivity"
+            android:name="com.ljm.testmultitouch.MarkPointActivity"
             android:label="@string/title_activity_test_multi_touch_event"
             android:screenOrientation="landscape" >
         </activity>
